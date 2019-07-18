@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT;
 
 namespace AirspaceFixerSample
 {
@@ -51,6 +52,11 @@ namespace AirspaceFixerSample
         private void txtUrl_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             Browser.Navigate(txtUrl.Text);
+        }
+
+        private void Browser_OnNavigationStarting(object sender, WebViewControlNavigationStartingEventArgs e)
+        {
+            txtUrl.Text = e.Uri.OriginalString;
         }
     }
 }

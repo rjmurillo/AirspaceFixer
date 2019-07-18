@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AirspaceFixerSample.WebBrowserView"
+﻿<UserControl xmlns:Controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=AirspaceFixerSample"  x:Class="AirspaceFixerSample.WebBrowserView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:asf="clr-namespace:AirspaceFixer;assembly=AirspaceFixer"
@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:AirspaceFixerSample"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls.WebView"
              d:DesignHeight="700"
              d:DesignWidth="1000"
              mc:Ignorable="d">
@@ -63,8 +64,10 @@
 
         <asf:AirspacePanel Grid.Row="1"
                            FixAirspace="{Binding FixAirspace}">
-            <WebBrowser x:Name="Browser"
-                        Navigating="Browser_Navigating" />
+            <!--<WebBrowser x:Name="Browser"
+                        Navigating="Browser_Navigating" />-->
+<controls:WebView x:Name="Browser"
+                  NavigationStarting="Browser_OnNavigationStarting"/>
         </asf:AirspacePanel>
 
     </Grid>
